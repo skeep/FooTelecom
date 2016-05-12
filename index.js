@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/webhook/', function (req, res) {
-	  if (req.query['hub.verify_token'] === '<validation_token>') {
+	  if (req.query['hub.verify_token'] === 'EAAWCXOKuV0gBABuh1ZC2rbwFspjW23ZACd1iZCd67Yg1FNTAZA8XZCsnIAbBRQZBLjv2k6V4p1LTTiR4StZCOF49iZCdaspZC8oTFqqpQXrEZARz0bJZBebC6tmUMQuEACL0ZB1wITZCV8ZALgb7Pv5ZCt8k60mRdVylc1JZA4zz5iCsQ7L7eQZDZD') {
 		      res.send(req.query['hub.challenge']);
 		        }
 	    res.send('Error, wrong validation token');
