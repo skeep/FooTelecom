@@ -31,7 +31,7 @@ core.expectation('otp', function () {
 core.expectation('statement', function () {
   return {
     validators : ['isStatement'],
-    success : [],
+    success : ['start'],
     fail: ['fail']
   };
 });
