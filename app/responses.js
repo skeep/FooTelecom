@@ -49,7 +49,7 @@ core.response('fail', function (to) {
   return {
     text: `I am sorry ${to.first_name}, I am unable to understand what you mean.`
   };
-});
+}, 'greetings');
 
 core.response('bill', function () {
   return {
