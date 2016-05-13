@@ -37,7 +37,7 @@ core.response('start', function () {
       }
     }
   };
-});
+}, 'statement');
 
 core.response('otp', function () {
   return {
@@ -82,7 +82,7 @@ core.response('bill', function () {
       }
     }
   };
-});
+}, 'statement');
 
 core.response('askMobile', function () {
   return {
@@ -125,7 +125,7 @@ core.response('plans', function () {
       }
     }
   };
-});
+}, 'statement');
 
 core.response('buy', function () {
   return {
@@ -155,7 +155,7 @@ core.response('buy', function () {
       }
     }
   };
-});
+}, 'statement');
 
 core.response('balance', function (to) {
   var deferred = Q.defer();

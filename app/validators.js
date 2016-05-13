@@ -34,16 +34,19 @@ core.validator('isOTP', function (message) {
 });
 
 core.validator('isStatement', function (message) {
-  var deferred = Q.defer();
-
-  http.get('http://demo1036853.mockable.io/wit', function (res) {
-    res.setEncoding('utf8');
-    res.on('data', function (d) {
-      d = JSON.parse(d);
-      deferred.resolve(d.intent);
-    });
-  }).on('error', function (e) {
-    deferred.reject(new Error(e));
+  // var deferred = Q.defer();
+  //
+  // http.get('http://demo1036853.mockable.io/wit', function (res) {
+  //   res.setEncoding('utf8');
+  //   res.on('data', function (d) {
+  //     d = JSON.parse(d);
+  //     deferred.resolve(d.intent);
+  //   });
+  // }).on('error', function (e) {
+  //   deferred.reject(new Error(e));
+  // });
+  // return deferred.promise;
+  return Q.fcall(function () {
+    return message == 'hi';
   });
-  return deferred.promise;
 });
