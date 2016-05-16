@@ -15,7 +15,7 @@ core.response('start', function () {
         template_type: 'generic',
         elements: [
           {
-            title: `Welcome to MDL Telco`,
+            title: `Welcome to Telco eCare`,
             subtitle: `Hello! What would you like to do?`,
             buttons: [
               {
