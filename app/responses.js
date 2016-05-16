@@ -47,6 +47,7 @@ core.response('recommended', function () {
         template_type: 'generic',
         elements: [
           {
+            title: 'Plan recommendation',
             subtitle: `Seems that you like streaming music and videos. Based on your usage, we can recommend you plans that will benefit you. Ready to check it out!!!`,
             buttons: [
               {
