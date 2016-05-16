@@ -31,7 +31,7 @@ core.expectation('statement', function () {
 core.expectation('offer', function () {
   return {
     validators : ['isOffer'],
-    success : ['offer'],
+    success : ['offers'],
     fail: ['fail']
   };
 });
