@@ -12,14 +12,6 @@ core.expectation('phoneno', function () {
   };
 });
 
-core.expectation('greetings', function () {
-  return {
-    validators : ['isGreetings'],
-    success : ['start'],
-    fail: ['fail']
-  };
-});
-
 core.expectation('otp', function () {
   return {
     validators : ['isOTP'],
@@ -32,6 +24,14 @@ core.expectation('statement', function () {
   return {
     validators : ['isStatement'],
     success : ['start'],
+    fail: ['fail']
+  };
+});
+
+core.expectation('offer', function () {
+  return {
+    validators : ['isOffer'],
+    success : ['offer'],
     fail: ['fail']
   };
 });

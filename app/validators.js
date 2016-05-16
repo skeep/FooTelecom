@@ -21,12 +21,6 @@ core.validator('isPhoneno', function (message) {
   return deferred.promise;
 });
 
-core.validator('isGreetings', function (message) {
-  return Q.fcall(function () {
-    return message == 'hi';
-  });
-});
-
 core.validator('isOTP', function (message) {
   return Q.fcall(function () {
     return message == 1234;
@@ -47,6 +41,12 @@ core.validator('isStatement', function (message) {
   // });
   // return deferred.promise;
   return Q.fcall(function () {
-    return message == 'hi';
+    return (message == 'hi' || message == 'Hi');
+  });
+});
+
+core.validator('isStatement', function (message) {
+  return Q.fcall(function () {
+    return (message == 'offer' || message == 'Offer');
   });
 });

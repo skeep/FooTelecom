@@ -39,6 +39,33 @@ core.response('start', function () {
   };
 }, 'statement');
 
+core.response('recommended', function () {
+  return {
+    attachment: {
+      type: 'template',
+      payload: {
+        template_type: 'generic',
+        elements: [
+          {
+            subtitle: `Seems that you like streaming music and videos. Based on your usage, we can recommend you plans that will benefit you. Ready to check it out!!!`,
+            buttons: [
+              {
+                type: 'postback',
+                title: 'Show me better plans.',
+                payload: 'plans'
+              }, {
+                type: 'postback',
+                title: 'No',
+                payload: 'start'
+              }
+            ]
+          }
+        ]
+      }
+    }
+  };
+}, 'statement');
+
 core.response('otp', function () {
   return {
     text: `I have send an OTP to the phone number 9945458300. Please type your OTP below after you receive it.`
@@ -52,6 +79,20 @@ core.response('fail', function (to) {
 }, 'greetings');
 
 core.response('bill', function () {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+
+  if(dd<10) {
+    dd='0'+dd
+  }
+
+  if(mm<10) {
+    mm='0'+mm
+  }
+
+  today = mm+'/'+dd+'/'+yyyy;
   return {
     "attachment": {
       "type": "template",
@@ -59,7 +100,7 @@ core.response('bill', function () {
         "template_type": "generic",
         "elements": [
           {
-            "title": `Bill summary of 9945458300`,
+            "title": `Bill summary of 9945458300 as on ${today}`,
             "image_url": "http://boiling-gorge-79536.herokuapp.com/img/bill.png",
             "subtitle": `To help you further choose a command`,
             "buttons": [
@@ -74,7 +115,7 @@ core.response('bill', function () {
               }, {
                 "type": "postback",
                 "title": "Recommended Plan",
-                "payload": "plans"
+                "payload": "recommended"
               }
             ]
           }
@@ -99,7 +140,7 @@ core.response('plans', function () {
         "elements": [
           {
             "title": "My Plan 299",
-            "image_url": "http://lorempixel.com/191/100/abstract/",
+            // "image_url": "http://lorempixel.com/191/100/abstract/",
             "subtitle": "2GB free data usage for 45 days",
             "buttons": [
               {
@@ -111,13 +152,38 @@ core.response('plans', function () {
           },
           {
             "title": "My Plan 499",
-            "image_url": "http://lorempixel.com/191/100/technics/",
+            // "image_url": "http://lorempixel.com/191/100/technics/",
             "subtitle": "4GB free data usage for 45 days",
             "buttons": [
               {
                 "type": "postback",
                 "title": "Buy",
                 "payload": "buy"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  };
+}, 'statement');
+
+core.response('offers', function () {
+  return {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "generic",
+        "elements": [
+          {
+            "title": "Digital TV",
+            // "image_url": "http://lorempixel.com/191/100/abstract/",
+            "subtitle": "Record up to 750 hours of live TV",
+            "buttons": [
+              {
+                "type": "web_url",
+                "title": "Buy",
+                "url": "http://www.google.com"
               }
             ]
           }
@@ -155,21 +221,4 @@ core.response('buy', function () {
       }
     }
   };
-}, 'statement');
-
-core.response('balance', function (to) {
-  var deferred = Q.defer();
-
-  http.get('http://demo1036853.mockable.io/balance', function (res) {
-    res.setEncoding('utf8');
-    res.on('data', function (d) {
-      d = JSON.parse(d);
-      deferred.resolve({
-        text: `Your balance is ${d.amount}$`
-      });
-    });
-  }).on('error', function (e) {
-    deferred.reject(new Error(e));
-  });
-  return deferred.promise;
-}, 'statement');
+}, 'offer');
