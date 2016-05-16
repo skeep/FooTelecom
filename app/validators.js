@@ -45,7 +45,7 @@ core.validator('isStatement', function (message) {
   });
 });
 
-core.validator('isStatement', function (message) {
+core.validator('isOffer', function (message) {
   return Q.fcall(function () {
     return (message == 'offer' || message == 'Offer');
   });
