@@ -77,7 +77,7 @@ core.response('fail', function (to) {
   return {
     text: `I am sorry ${to.first_name}, I am unable to understand what you mean.`
   };
-}, 'greetings');
+}, 'statement');
 
 core.response('bill', function () {
   var today = new Date();
