@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "subscribe": "curl -ik -X POST \"https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=EAAWCXOKuV0gBAMnkVeSEwnXL60ZAtwIgJ9XY2DpppjCWc9zkJDQUXkRg9OpMBMvlJyEC8HDnlnVYEqzacnDuKe6kGpn6DmOP8X6zEGPBXjMPfecRwHTeRUPhHZAZA8yZAv6Q1LvDuftyVDic2Wwx2zfsNhNbZCTqdPx2MIm7NAwZDZD\""
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
   "homepage": "https://github.com/skeep/FooTelecom#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
-    "chanakya": "^1.7.0",
+    "chanakya": "^1.8.0",
     "cli-color": "^1.1.0",
     "express": "^4.13.4",
     "http": "0.0.0",
